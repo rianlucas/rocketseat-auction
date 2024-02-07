@@ -19,4 +19,8 @@
       <Compile Remove="WeatherForecast.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Communitcation\Responses\" />
+    </ItemGroup>
+
 </Project>

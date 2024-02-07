@@ -1,8 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using RocketseatAuction.API.Data;
+using RocketseatAuction.API.Filters;
 using RocketseatAuction.API.Repositories.Implementations;
 using RocketseatAuction.API.Repositories.Interfaces;
 using RocketseatAuction.API.UseCases.Auctions.GetCurrent;
+using RocketseatAuction.API.UseCases.Offers.CreateOffer;
+using RocketseatAuction.API.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,11 @@ builder.Services.AddDbContext<RocketseatAuctionDbContext>(options =>
 
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<GetCurrentAuctionUseCase>();
+builder.Services.AddScoped<AuthenticationUserAttribute>();
+builder.Services.AddScoped<LoggedUser>();
+builder.Services.AddScoped<CreateOfferUseCase>();
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
