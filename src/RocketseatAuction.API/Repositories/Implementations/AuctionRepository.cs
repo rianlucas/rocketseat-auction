@@ -14,7 +14,7 @@ public class AuctionRepository : IAuctionRepository
         _context = context;
     } 
     
-    public Task<Auction?> Get(int id)
+    public Task<Auction?>? Get(int id)
     {
         var auction = _context.Auctions
             .AsNoTracking()
